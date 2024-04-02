@@ -2,13 +2,15 @@ import { FaHome } from "react-icons/fa";
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import './Nav.css';
-import logo from './Logo.svg'; 
+import logo from './images/Logo.svg'; 
 
 function Nav(){
 return(
-
    <header className="navbar">
-  <img src={logo} alt="Logo" />;
+      <NavLink to="/" >
+      <img src={logo} alt="Logo" />
+          </NavLink>
+
       <ul className="nav-list">
         <li className="nav-item">
           <NavLink to="/" >
