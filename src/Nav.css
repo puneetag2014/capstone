@@ -78,12 +78,13 @@ header a {
 .Specials p{
     text-wrap: balance;
 }
-button{
+.submitButton{
     background-color: #F4ce14;
-    border-radius: 10%;
+    border-radius: 5%;
     font-weight: bold;
     margin-bottom: 3%;
-    width: 50%;
+    width: 20%;
+    padding: 1% 0 1% 0;
 }
 .Testimonials{
   display: flex;
@@ -143,7 +144,7 @@ button{
 .FooterList li{
   text-align: left;
   width: 20%;
-  /* height: 40vh; */
+
   border-radius: 5%;
   padding: 2%;
  
@@ -151,5 +152,30 @@ button{
 
 .SocialMedia div{
   padding-bottom: 10%;
+}
+.bookingForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ee9972;
 
+}
+.formInput {
+
+  text-align: center;
+padding: 1%;
+flex: 40%;
+  border-radius: 1rem;
+
+}
+form label{
+  flex: 30%;
+}
+form > div{
+display: flex;
+direction: row;
+column-gap: 5% ;
+margin:1%;
+ font-size: 1.2rem;
+ width: 40%;
 }

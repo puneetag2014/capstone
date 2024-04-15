@@ -7,7 +7,7 @@ return(
     We are storytellers, always seeking to share cultures with truth, compassion, and enthusiasm.
      Also, Creativity is at our core, as we push ourselves every day to explore new ways to cook, serve, and share.
     </div>
-    <img src={restaurantChef} width={400} alt="restaurant chef picture" />
+    <img src={restaurantChef}  alt="restaurant chef picture with dish" />
    </div>
 )
 }

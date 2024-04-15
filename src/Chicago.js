@@ -5,7 +5,8 @@ function Chicago(){
         <div className='Chicago'>
          <img src={restaurant} width={400} alt="restaurant image" />
          <div>
-            We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
+            We are a family owned Mediterranean restaurant, 
+            focused on traditional recipes served with a modern twist.
          </div>
         </div>
     )

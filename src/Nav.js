@@ -23,7 +23,7 @@ return(
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/Reservations" >
+          <NavLink to="/Booking" >
             Reservations
           </NavLink>
         </li>
