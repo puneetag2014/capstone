@@ -26,24 +26,18 @@ let times_dupl_removed=[];
 times_dupl_removed=removeDuplicates(times_final);
 times_dupl_removed.sort((a,b) =>
 (a.value > b.value) ? 1 : -1
-// {
-    // if (fa < fb) {
-    //     return -1;
-    // }
-    // if (fa > fb) {
-    //     return 1;
-    // }
-    // return 0;
-// }
 )
 console.log(times_dupl_removed);
 return times_dupl_removed;
-
-// console.log(times);
-    // return    {times};
-
 }
-const submitAPI=function(formData){
+let currentDate=new Date();
+const submitAPI=function(formData)
+{
+// if(formData.date<currentDate)
+if(formData)
+    return true;
+else
+    return false;
 
 }
 export {fetchAPI,submitAPI};

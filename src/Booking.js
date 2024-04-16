@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import Nav from "./Nav.js";
 import Footer from "./Footer.js";
+import { submitAPI } from './Api.js';
+import ConfirmedBooking from './ConfirmedBooking.js';
+import { useNavigate } from 'react-router-dom';
 
 function Booking(props) {
     var availableTimes =props.state_var.availableTimes;
     const [inputs, setInputs] = useState({});
-
+    const [errors,setErrors] =useState();
+    const navigate = useNavigate();
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -20,23 +24,25 @@ function Booking(props) {
         setInputs(values => ({ ...values, [name]: value }));
          props.dispatch({type: 'update_availableTimes'});
         setTimesList(availableTimes);
-        console.log(availableTimes);
-        console.log(timesList);
     }
     const handleTimeChange=(event)=>{
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
         setTimesList(availableTimes);
-        console.log(availableTimes);
-        console.log(timesList);
     }
 
+    const submitForm= (formData)=>{
+        let status= submitAPI(formData)
+        if (status)
+        navigate('/confirmedBooking');
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Reservation done!! `)
-    }
-
+        const formData = new FormData(event.target);
+        submitForm(formData);
+        }
+    let currentDate = new Date();
     return (
         <>
             <Nav />
@@ -63,6 +69,7 @@ function Booking(props) {
                 <div>
                     <label for="res-time">Time:</label>
                     <select id="res-time" className='formInput'
+                    name="selectTime"
                      data-testid="select"
                         onClick={handleTimeChange}>
                         <option  value="select time">select time</option>
@@ -80,7 +87,6 @@ function Booking(props) {
                         value={inputs.guestCount || ""}
                         onChange={handleChange}
                     />
-
                 </div>
                 <div>
                     <label for="occassion">Occasion  </label>
@@ -100,12 +106,13 @@ function Booking(props) {
                         <option value="Indoor">Indoor</option>
                         <option value="No preference">No preference</option>
                     </select>
-
                 </div>
-
-                <input type="submit" className='submitButton' />
+                <input aria-label="On Click" 
+                type="submit" disabled={(!(inputs.date))||((inputs.username.length)<3)} 
+                className='submitButton' />
             </form>
             <Footer />
+            {/* (inputs.date<currentDate) */}
         </>
     )
 }

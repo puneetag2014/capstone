@@ -6,6 +6,7 @@ import Booking from './Booking.js';
 import { useEffect,useState } from 'react';
 // import { fetchAPI } from 'https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js';
 import { fetchAPI } from './Api.js';
+import ConfirmedBooking from './ConfirmedBooking.js';
 
 function App() {
 
@@ -45,13 +46,13 @@ const [state,dispatch] =useReducer(updateTimes,0,initializeTimes);
       <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/booking" element={<Booking 
-      // availableTimes={state.availableTimes}
       state_var={state}
       dispatch={dispatch}
       chooseDate={chooseDate}
       // initializeTimes={initializeTimes}
       // updateTimes={updateTimes}
       />}></Route>
+      <Route path="/confirmedBooking" element={<ConfirmedBooking />}> </Route>
     </Routes>
     </>
 
